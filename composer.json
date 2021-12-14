@@ -1,7 +1,21 @@
 {
-  "name": "huangtingbb/dy_open_api",
-  "description": "douyin open api sdk",
-  "require": {
-    "php": ">=7.4"
-  }
+    "name": "huangtingbb/dy_api",
+    "description": "douyin open api sdk",
+    "type": "library",
+    "license": "MIt",
+    "autoload": {
+        "psr-4": {
+            "Huangtingbb\\DyApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LJ",
+            "email": "1029148937@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3"
+    }
 }
