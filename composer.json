@@ -1,5 +1,5 @@
 {
-  "name": "lj/dy_open_api",
+  "name": "huangtingbb/dy_open_api",
   "description": "douyin open api sdk",
   "require": {
     "php": ">=7.4"
