@@ -1,13 +1,39 @@
 <?php
 
 namespace Huangtingbb\DyApi;
+use Huangtingbb\DyApi\Request;
 
 class ApiInstance
 {
 
-    public function __call($method,$args){
-        var_dump($method);
-        var_dump($args);
+    private Request $request;
+    /**
+     * api接口映射
+     * @var array
+     */
+    private $api_map = [];
+
+    public function __construct()
+    {
+        $this->request = new Request();
+        $this->api_map = include_once './api_map.php';
     }
 
+    public function __call($method,$args){
+        if(isset($this->api_map[$method])){
+            $class_name = $this->api_map[$method];
+        }else{
+            throw new \Exception("error API called");
+        }
+        $api_class = new $class_name;
+        $api_class -> init($args);
+        $res = $this->invokeApi($api_class);
+    }
+
+
+    /**
+     * @param OpenApi $api_class open_api_class
+     */
+    private function invokeApi(OpenApi $api_class){
+    }
 }
