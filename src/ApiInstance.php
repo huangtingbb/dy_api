@@ -5,8 +5,6 @@ use Huangtingbb\DyApi\Request;
 
 class ApiInstance
 {
-
-    private Request $request;
     /**
      * api接口映射
      * @var array
@@ -15,7 +13,6 @@ class ApiInstance
 
     public function __construct()
     {
-        $this->request = new Request();
         $this->api_map = include_once './api_map.php';
     }
 
@@ -27,7 +24,7 @@ class ApiInstance
         }
         $api_class = new $class_name;
         $api_class -> init($args);
-        $res = $this->invokeApi($api_class);
+        return $this->invokeApi($api_class);
     }
 
 
@@ -35,5 +32,6 @@ class ApiInstance
      * @param OpenApi $api_class open_api_class
      */
     private function invokeApi(OpenApi $api_class){
+        $api_class->request();
     }
 }
