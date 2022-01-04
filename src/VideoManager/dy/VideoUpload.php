@@ -31,7 +31,7 @@ class VideoUpload extends OpenApi
 
     public function request(){
         $method = $this->method;
-        $this->request
+        return $this->request
             ->setUrl(static::GATEWAY.$this->uri)
             ->setheader($this->header)
             ->setQuery($this->query)
