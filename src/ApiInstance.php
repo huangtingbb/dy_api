@@ -13,7 +13,7 @@ class ApiInstance
 
     public function __construct()
     {
-        $this->api_map = include_once './api_map.php';
+        $this->api_map = include_once __DIR__ .'/api_map.php';
     }
 
     public function __call($method,$args){
@@ -23,7 +23,7 @@ class ApiInstance
             throw new \Exception("error API called");
         }
         $api_class = new $class_name;
-        $api_class -> init($args);
+        $api_class -> init($args[0]);
         return $this->invokeApi($api_class);
     }
 

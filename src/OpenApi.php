@@ -6,7 +6,7 @@ use Huangtingbb\DyApi\Exceptions\InvalidParamsException;
 
 abstract class OpenApi
 {
-    const GATEWAY = "https://open.douyin.com/";
+    const GATEWAY = "https://open.douyin.com";
     const HTTP_GET = "get";
     const HTTP_POST = "post";
 
@@ -33,6 +33,7 @@ abstract class OpenApi
      * @throws InvalidParamsException
      */
     protected function initQuery(&$data){
+        $query = [];
         if (!empty($this->query)) {
             foreach ($this->query as $key) {
                 if (!isset($data[$key])) throw new InvalidParamsException($key, 1001);
@@ -40,6 +41,7 @@ abstract class OpenApi
                 unset($data[$key]);
             }
         }
+        $this->query = $query;
     }
 
     /**
@@ -48,6 +50,7 @@ abstract class OpenApi
      * @throws InvalidParamsException
      */
     protected function initBody(&$data){
+        $body = [];
         if (!empty($this->body)) {
             foreach ($this->body as $key) {
                 if (!isset($data[$key])) throw new InvalidParamsException($key, 1001);
@@ -55,6 +58,7 @@ abstract class OpenApi
                 unset($data[$key]);
             }
         }
+        $this->body = $body;
     }
 
     public abstract function request();
