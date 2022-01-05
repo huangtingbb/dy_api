@@ -24,7 +24,7 @@ class VideoUpload extends OpenApi
     ];
 
 
-    public function initBody($data){
+    public function initBody(&$data){
         parent::initBody($data);
         $this->body["content-type"] =  "video/mp4";
     }

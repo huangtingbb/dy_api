@@ -76,8 +76,8 @@ class Request
             curl_setopt($this->ch,CURLOPT_HTTPHEADER,$this->header);
         }
         $str = curl_exec($this->ch);//执行访问，返回结果
-        $return = json_decode($str);
-        curl_init($this->ch);//释放资源
+        $return = json_decode($str,true);
+        $this->ch = curl_init();//释放资源
         return $return;
     }
 
