@@ -58,8 +58,16 @@ abstract class OpenApi
                 unset($data[$key]);
             }
         }
-        $this->body = $body;
+        $this->body = array_merge($data,$body);
     }
 
-    public abstract function request();
+    public function request(){
+        $method = $this->method;
+        return $this->request
+            ->setUrl(static::GATEWAY.$this->uri)
+            ->setheader($this->header)
+            ->setQuery($this->query)
+            ->setBody($this->body)
+            ->$method();
+    }
 }

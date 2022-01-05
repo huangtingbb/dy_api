@@ -9,12 +9,15 @@ class VideoCreate extends OpenApi
     protected $uri = "/video/create/";
     protected $method = "post";
     protected $header = [
-        "Content-Type:multipart/form-data"
+        "Content-Type:application/json"
     ];
 
-    public function init(){
+    protected $query = [
+        'access_token',
+        'open_id',
+    ];
 
-    }
-
-
+    protected $body = [
+        'video_id',
+    ];
 }
