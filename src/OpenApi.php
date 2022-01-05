@@ -37,7 +37,7 @@ abstract class OpenApi
         if (!empty($this->query)) {
             foreach ($this->query as $key) {
                 if (!isset($data[$key])) throw new InvalidParamsException($key, 1001);
-                $this->query[$key] = $data[$key];
+                $query[$key] = $data[$key];
                 unset($data[$key]);
             }
         }
@@ -54,7 +54,7 @@ abstract class OpenApi
         if (!empty($this->body)) {
             foreach ($this->body as $key) {
                 if (!isset($data[$key])) throw new InvalidParamsException($key, 1001);
-                $this->body[$key] = $data[$key];
+                $body[$key] = $data[$key];
                 unset($data[$key]);
             }
         }

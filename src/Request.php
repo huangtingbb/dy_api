@@ -61,7 +61,7 @@ class Request
     private function send(){
         if (empty($this->url)) throw new InvalidUrlException("url is not allowed empty");
         if (!empty($this->query)){
-            $this->url .= "?".http_build_url($this->query);
+            $this->url .= "?".http_build_query($this->query);
         }
         curl_setopt($this->ch, CURLOPT_URL, $this->url);//设置网址
         curl_setopt($this->ch, CURLOPT_HEADER, false);//设置头信息
