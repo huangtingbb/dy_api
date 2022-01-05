@@ -32,6 +32,6 @@ class ApiInstance
      * @param OpenApi $api_class open_api_class
      */
     private function invokeApi(OpenApi $api_class){
-        $api_class->request();
+        return $api_class->request();
     }
 }

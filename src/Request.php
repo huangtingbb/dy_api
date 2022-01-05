@@ -49,13 +49,13 @@ class Request
     }
 
     public function get(){
-        $this->send();
+        return $this->send();
     }
 
     public function post(){
         curl_setopt($this->ch, CURLOPT_POST, true);//设置请求方式为post
         curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->body);//设置请求数据
-        $this->send();
+        return $this->send();
     }
 
     private function send(){
