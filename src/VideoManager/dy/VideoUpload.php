@@ -26,6 +26,7 @@ class VideoUpload extends OpenApi
 
     public function initBody(&$data){
         parent::initBody($data);
+        $this->body['video'] = new \CURLFile($this->body['video']);
         $this->body["content-type"] =  "video/mp4";
     }
 
