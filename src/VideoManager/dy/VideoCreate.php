@@ -7,7 +7,7 @@ use Huangtingbb\DyApi\OpenApi;
 class VideoCreate extends OpenApi
 {
     protected $uri = "/video/create/";
-    protected $method = "post";
+    protected $method = self::HTTP_POST;
     protected $header = [
         "Content-Type:application/json"
     ];
@@ -20,4 +20,14 @@ class VideoCreate extends OpenApi
     protected $body = [
         'video_id',
     ];
+
+    public function request()
+    {
+        return $this->request
+            ->setUrl(static::GATEWAY.$this->uri)
+            ->setHeader($this->header)
+            ->setQuery($this->query)
+            ->setBody($this->body)
+            ->postJson();
+    }
 }

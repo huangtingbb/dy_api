@@ -15,8 +15,6 @@ class Request
     private array  $body = [];
     private array  $query = [];
     private string $url;
-    private string $method = "post";
-    private bool $ssl;
     private $ch = null;
 
     private function __construct(){
@@ -55,6 +53,12 @@ class Request
     public function post(){
         curl_setopt($this->ch, CURLOPT_POST, true);//设置请求方式为post
         curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->body);//设置请求数据
+        return $this->send();
+    }
+
+    public function postJson(){
+        curl_setopt($this->ch, CURLOPT_POST, true);//设置请求方式为post
+        curl_setopt($this->ch, CURLOPT_POSTFIELDS, json_encode($this->body));//设置请求数据
         return $this->send();
     }
 

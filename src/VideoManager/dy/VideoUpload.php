@@ -10,7 +10,7 @@ class VideoUpload extends OpenApi
 {
     protected $request;
     protected $uri = "/video/upload/";
-    protected $method = "post";
+    protected $method = self::HTTP_POST;
     protected $header = [
         "Content-Type:multipart/form-data"
     ];
@@ -18,7 +18,6 @@ class VideoUpload extends OpenApi
         'access_token',
         'open_id',
     ];
-
     protected $body = [
         'video',
     ];
