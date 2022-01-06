@@ -21,8 +21,11 @@ abstract class OpenApi
         $this->request = Request::getInstance();
     }
 
+    /**
+     * @param array $data
+     * @throws InvalidParamsException
+     */
     public function init(array $data){
-        //初始化参数
         $this->initQuery($data);
         $this->initBody($data);
     }
@@ -54,11 +57,9 @@ abstract class OpenApi
         if (!empty($this->body)) {
             foreach ($this->body as $key) {
                 if (!isset($data[$key])) throw new InvalidParamsException($key, 1001);
-                $body[$key] = $data[$key];
-                unset($data[$key]);
             }
         }
-        $this->body = array_merge($data,$body);
+        $this->body = $data;
     }
 
     public function request(){

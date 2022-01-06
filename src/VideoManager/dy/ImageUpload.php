@@ -12,7 +12,4 @@ class ImageUpload extends OpenApi
         "Content-Type:multipart/form-data"
     ];
 
-    public function init(){
-    }
-
 }

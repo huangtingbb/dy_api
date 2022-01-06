@@ -3,6 +3,12 @@
 namespace Huangtingbb\DyApi;
 use Huangtingbb\DyApi\Request;
 
+/**
+ * @method   dyVideoUpload($data)
+ * @method   dyVideoCreate($data)
+ * @method   getDyAccessToken($data)
+ *
+ */
 class ApiInstance
 {
     /**
