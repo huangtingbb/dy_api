@@ -1,6 +1,6 @@
 <?php
 
-namespace Huangtingbb\DyApi\VideoManager\dy;
+namespace Huangtingbb\DyApi\VideoManager\Dy;
 
 use Huangtingbb\DyApi\OpenApi;
 

@@ -4,9 +4,13 @@ namespace Huangtingbb\DyApi;
 use Huangtingbb\DyApi\Request;
 
 /**
- * @method   dyVideoUpload($data)
- * @method   dyVideoCreate($data)
- * @method   getDyAccessToken($data)
+ * @method   dyVideoUpload($data)                   上传视频
+ * @method   dyVideoCreate($data)                   发布视频
+ * @method   getDyAccessToken($data)                获取抖音用户access_token
+ * @method   refreshDyAccessToken($data)            刷新抖音用户access_token
+ * @method   RenewRefreshToken($data)               刷新抖音用户refresh_token
+ * @method   getDataExternalUserVideo($data)        获取用户视频情况
+ * @method   getDataExternalUserFans($data)         获取用户粉丝数
  *
  */
 class ApiInstance

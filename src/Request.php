@@ -11,10 +11,10 @@ class Request
      * @var array
      */
     public static $instance = null;
-    private array  $header = [];
-    private array  $body = [];
-    private array  $query = [];
-    private string $url;
+    private $header = [];
+    private $body = [];
+    private $query = [];
+    private $url;
     private $ch = null;
 
     private function __construct(){
@@ -26,42 +26,80 @@ class Request
         return self::$instance;
     }
 
-    public function setUrl($url){
+    /**
+     * @param $url
+     * @return array|null
+     */
+    public function setUrl($url)
+    {
         $this->url = $url;
         return self::$instance;
     }
 
-    public function setHeader($header){
-        $this->header = $header;
+
+    /**
+     * @param array $header
+     * @return array|null
+     */
+    public function setHeader($header = []){
+        if (!empty($header))
+            $this->header = $header;
         return self::$instance;
     }
 
+    /**
+     * @param $body
+     * @return array|null
+     */
     public function setBody($body){
         $this->body = $body;
         return self::$instance;
     }
 
+    /**
+     * @param $query
+     * @return array|null
+     */
     public function setQuery($query){
         $this->query = $query;
         return self::$instance;
     }
 
+    /**
+     * get request
+     * @return mixed
+     * @throws InvalidUrlException
+     */
     public function get(){
         return $this->send();
     }
 
+    /**
+     * post request
+     * @return mixed
+     * @throws InvalidUrlException
+     */
     public function post(){
         curl_setopt($this->ch, CURLOPT_POST, true);//设置请求方式为post
         curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->body);//设置请求数据
         return $this->send();
     }
 
+    /**
+     * json post
+     * @return mixed
+     * @throws InvalidUrlException
+     */
     public function postJson(){
         curl_setopt($this->ch, CURLOPT_POST, true);//设置请求方式为post
         curl_setopt($this->ch, CURLOPT_POSTFIELDS, json_encode($this->body));//设置请求数据
         return $this->send();
     }
 
+    /**
+     * @return mixed
+     * @throws InvalidUrlException
+     */
     private function send(){
         if (empty($this->url)) throw new InvalidUrlException("url is not allowed empty");
         if (!empty($this->query)){
