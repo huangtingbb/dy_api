@@ -14,4 +14,8 @@ return [
     //data
     'getDataExternalUserVideo' => \Huangtingbb\DyApi\Data\User\Video::class,
     'getDataExternalUserFans' => \Huangtingbb\DyApi\Data\User\Fans::class,
+    'getDataExternalUserLike' => \Huangtingbb\DyApi\Data\User\Like::class,
+    'getDataExternalUserComment' => \Huangtingbb\DyApi\Data\User\Comment::class,
+    'getDataExternalUserShare' => \Huangtingbb\DyApi\Data\User\Share::class,
+    'getDataExternalUserProfile' => \Huangtingbb\DyApi\Data\User\Profile::class,
 ];
