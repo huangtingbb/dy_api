@@ -15,6 +15,11 @@ use Huangtingbb\DyApi\Request;
  * @method   getDataExternalUserComment($data)          获取用户评论数
  * @method   getDataExternalUserShare($data)            获取用户分享数
  * @method   getDataExternalUserProfile($data)          获取用户主页访问数
+ * @method   getDataExternalVideoBase($data)            获取视频基础信息
+ * @method   getDataExternalVideoLike($data)            获取视频点赞
+ * @method   getDataExternalVideoComment($data)         获取视频评论
+ * @method   getDataExternalVideoShare($data)           获取视频分享
+ * @method   getDataExternalVideoPlay($data)            获取视频播放
  *
  */
 class ApiInstance
