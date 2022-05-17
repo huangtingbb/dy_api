@@ -42,7 +42,7 @@ class ApiInstance
             throw new \Exception("error API called");
         }
         $api_class = new $class_name;
-        $api_class -> init($args[0]);
+        $api_class -> init($args[0],$args[1]);
         return $this->invokeApi($api_class);
     }
 

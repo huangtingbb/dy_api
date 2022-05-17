@@ -25,9 +25,10 @@ abstract class OpenApi
      * @param array $data
      * @throws InvalidParamsException
      */
-    public function init(array $data){
+    public function init(array $data,$header = []){
         $this->initQuery($data);
         $this->initBody($data);
+        if(!empty($header)) $this->initHeader($header);
     }
 
     /**
@@ -60,6 +61,14 @@ abstract class OpenApi
             }
         }
         $this->body = $data;
+    }
+
+    protected function initHeader($header){
+        $tmp = [];
+        foreach ($header as $k => $v){
+            $tmp[] = "$k:$v";
+        }
+        $this->header = array_merge($this->header , $tmp);
     }
 
     public function request(){

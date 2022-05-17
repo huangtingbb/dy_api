@@ -14,7 +14,6 @@ class PlanList extends OpenApi
 
     protected $header = [
         "Content-Type:application/json",
-        "access-token"
     ];
 
     protected $body = [
