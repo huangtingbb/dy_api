@@ -25,4 +25,17 @@ return [
     'getDataExternalVideoLike' => \Huangtingbb\DyApi\Data\Video\Like::class,
     'getDataExternalVideoShare' => \Huangtingbb\DyApi\Data\Video\Share::class,
     'getDataExternalVideoPlay' => \Huangtingbb\DyApi\Data\Video\Play::class,
+
+    //goods
+    'getGoodsTemplate' => \Huangtingbb\DyApi\LifeService\Goods\TemplateGet::class,
+    'getGoodsProductDraft' => \Huangtingbb\DyApi\LifeService\Goods\ProductDraftGet::class,
+    'getGoodsProductList' => \Huangtingbb\DyApi\LifeService\Goods\ProductDraftList::class,
+    'getGoodsProductOnline' => \Huangtingbb\DyApi\LifeService\Goods\ProductOnlineGet::class,
+    'saveGoodsProduct' => \Huangtingbb\DyApi\LifeService\Goods\ProductSave::class,
+    'freeAuditEditGoodsProduct' => \Huangtingbb\DyApi\LifeService\Goods\ProductFreeAudit::class,
+    'operateGoodsProductStatus' => \Huangtingbb\DyApi\LifeService\Goods\ProductOperate::class,
+    'syncGoodsProductStock' => \Huangtingbb\DyApi\LifeService\Goods\ProductStockSync::class,
+
+    //poi cps
+    "getPoiPlanList" => \Huangtingbb\DyApi\LifeService\Poi\PlanList::class,
 ];
