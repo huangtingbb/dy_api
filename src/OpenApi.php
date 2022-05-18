@@ -9,6 +9,7 @@ abstract class OpenApi
     const GATEWAY = "https://open.douyin.com";
     const HTTP_GET = "get";
     const HTTP_POST = "post";
+    const JSON_POST = "postJson";
 
     protected $request = null;
     protected $uri = "";

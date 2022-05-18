@@ -9,11 +9,11 @@ use Huangtingbb\DyApi\OpenApi;
  */
 class PlanList extends OpenApi
 {
-    protected $uri = "/life/goods/product/draft/list/";
-    protected $method = self::HTTP_POST;
+    protected $uri = "/poi/plan/list/";
+    protected $method = self::JSON_POST;
 
     protected $header = [
-        "Content-Type:application/json",
+        "Content-Type"=>"application/json",
     ];
 
     protected $body = [
@@ -21,4 +21,6 @@ class PlanList extends OpenApi
         'page_no',
         'page_size',
     ];
+
+
 }

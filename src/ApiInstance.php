@@ -20,6 +20,16 @@ use Huangtingbb\DyApi\Request;
  * @method   getDataExternalVideoComment($data)         获取视频评论
  * @method   getDataExternalVideoShare($data)           获取视频分享
  * @method   getDataExternalVideoPlay($data)            获取视频播放
+ * @method   getGoodsTemplate($data)                    获取模版
+ * @method   getGoodsProductDraft($data)                获取商品草稿
+ * @method   getGoodsProductList($data)                 获取商品草稿列表
+ * @method   getGoodsProductOnline($data)               获取线上商品
+ * @method   getGoodsProductOnlineList($data)           获取线上商品
+ * @method   saveGoodsProduct($data)                    保存商品
+ * @method   freeAuditEditGoodsProduct($data)           免审修改商品
+ * @method   operateGoodsProductStatus($data)           商品上下架
+ * @method   syncGoodsProductStock($data)               同步商品库存
+ * @method   getPoiPlanList($data,$header = [])         查询佣金计划列表
  *
  */
 class ApiInstance
@@ -42,7 +52,9 @@ class ApiInstance
             throw new \Exception("error API called");
         }
         $api_class = new $class_name;
-        $api_class -> init($args[0],$args[1]);
+        $data = isset($args[0]) ? $args[0] : [];
+        $header = isset($args[1]) ? $args[1] : [];
+        $api_class -> init($data,$header);
         return $this->invokeApi($api_class);
     }
 
