@@ -10,7 +10,11 @@ use Huangtingbb\DyApi\OpenApi;
 class ProductOperate extends OpenApi
 {
     protected $uri = "/life/goods/product/operate/";
-    protected $method = self::HTTP_POST;
+    protected $method = self::JSON_POST;
+
+    protected $header = [
+        "Content-Type: application/json"
+    ];
 
     protected $query = [
         'access_token',

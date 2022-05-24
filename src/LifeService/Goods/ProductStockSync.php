@@ -10,18 +10,20 @@ use Huangtingbb\DyApi\OpenApi;
 class ProductStockSync extends OpenApi
 {
     protected $uri = "/life/goods/stock/sync/";
-    protected $method = self::HTTP_POST;
+    protected $method = self::JSON_POST;
 
-    protected $query = [
-        'access_token',
+    protected $header = [
+        "Content-Type: application/json"
     ];
 
     protected $body = [
         'product_id',
         'out_id',
-        'stock'=>[
-            'limit_type',
-            'stock_qty',
-        ],
+        'stock'
+    ];
+
+    protected $stock = [
+        'limit_type',
+        'stock_qty',
     ];
 }

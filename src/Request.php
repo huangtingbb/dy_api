@@ -115,7 +115,6 @@ class Request
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);//只获取页面内容，但不输出
 
         if(!empty($this->header)){
-            var_dump($this->header);
             curl_setopt($this->ch,CURLOPT_HTTPHEADER,$this->header);
         }
         $str = curl_exec($this->ch);//执行访问，返回结果
