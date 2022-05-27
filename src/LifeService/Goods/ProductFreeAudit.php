@@ -10,7 +10,7 @@ use Huangtingbb\DyApi\OpenApi;
 class ProductFreeAudit extends OpenApi
 {
     protected $uri = "/life/goods/product/free_audit/";
-    protected $method = self::HTTP_POST;
+    protected $method = self::JSON_POST;
 
     protected $query = [
         'access_token',
